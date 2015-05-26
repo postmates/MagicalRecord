@@ -7,7 +7,6 @@
 //
 
 #import "MagicalRecord+ErrorHandling.h"
-#import "MagicalRecordLogging.h"
 
 
 __weak static id errorHandlerTarget = nil;
@@ -33,22 +32,22 @@ static SEL errorHandlerAction = nil;
             {
                 if ([e respondsToSelector:@selector(userInfo)])
                 {
-                    MRLogError(@"Error Details: %@", [e userInfo]);
+//                    MRLogError(@"Error Details: %@", [e userInfo]);
                 }
                 else
                 {
-                    MRLogError(@"Error Details: %@", e);
+//                    MRLogError(@"Error Details: %@", e);
                 }
             }
         }
         else
         {
-            MRLogError(@"Error: %@", detailedError);
+//            MRLogError(@"Error: %@", detailedError);
         }
     }
-    MRLogError(@"Error Message: %@", [error localizedDescription]);
-    MRLogError(@"Error Domain: %@", [error domain]);
-    MRLogError(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);
+//    MRLogError(@"Error Message: %@", [error localizedDescription]);
+//    MRLogError(@"Error Domain: %@", [error domain]);
+//    MRLogError(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);
 }
 
 + (void) handleErrors:(NSError *)error
