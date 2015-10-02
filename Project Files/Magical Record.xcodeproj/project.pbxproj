@@ -1182,7 +1182,7 @@
 			name = "Mac Unit Tests";
 			productName = "Mac Unit Tests";
 			productReference = 90DD201D167AA4350033BA25 /* Mac Unit Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		C721C7DB13D0C3A00097AB6F /* Mac App Unit Tests */ = {
 			isa = PBXNativeTarget;
@@ -1745,9 +1745,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Third Party/Kiwi/Kiwi\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Third Party/Kiwi/Kiwi\"";
 				INFOPLIST_FILE = "Mac Unit Tests/Mac Unit Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1778,9 +1776,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mac Unit Tests/Mac Unit Tests-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Third Party/Kiwi/Kiwi\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Third Party/Kiwi/Kiwi\"";
 				INFOPLIST_FILE = "Mac Unit Tests/Mac Unit Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-all_load";
@@ -1793,6 +1789,7 @@
 		C721C7A713D0A3750097AB6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1822,6 +1819,7 @@
 		C721C7A813D0A3750097AB6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
