@@ -11,7 +11,6 @@
 #import "NSPersistentStoreCoordinator+MagicalRecord.h"
 #import "MagicalRecord+ErrorHandling.h"
 #import "MagicalRecord+iCloud.h"
-#import "MagicalRecordLogging.h"
 
 static NSString * const MagicalRecordContextWorkingName = @"MagicalRecordContextWorkingName";
 
@@ -78,7 +77,7 @@ static id MagicalRecordUbiquitySetupNotificationObserver;
         context = [self MR_newPrivateQueueContext];
         [context performBlockAndWait:^{
             [context setPersistentStoreCoordinator:coordinator];
-            MRLogVerbose(@"Created new context %@ with store coordinator: %@", [context MR_workingName], coordinator);
+//            MRLogVerbose(@"Created new context %@ with store coordinator: %@", [context MR_workingName], coordinator);
         }];
     }
     return context;
@@ -87,14 +86,14 @@ static id MagicalRecordUbiquitySetupNotificationObserver;
 + (NSManagedObjectContext *) MR_newMainQueueContext
 {
     NSManagedObjectContext *context = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    MRLogInfo(@"Created new main queue context: %@", context);
+//    MRLogInfo(@"Created new main queue context: %@", context);
     return context;
 }
 
 + (NSManagedObjectContext *) MR_newPrivateQueueContext
 {
     NSManagedObjectContext *context = [[self alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    MRLogInfo(@"Created new private queue context: %@", context);
+//    MRLogInfo(@"Created new private queue context: %@", context);
     return context;
 }
 
@@ -178,7 +177,7 @@ static id MagicalRecordUbiquitySetupNotificationObserver;
 
     if ([insertedObjects count])
     {
-        MRLogVerbose(@"Context '%@' is about to save: obtaining permanent IDs for %lu new inserted object(s).", [context MR_workingName], (unsigned long)[insertedObjects count]);
+//        MRLogVerbose(@"Context '%@' is about to save: obtaining permanent IDs for %lu new inserted object(s).", [context MR_workingName], (unsigned long)[insertedObjects count]);
         NSError *error = nil;
         BOOL success = [context obtainPermanentIDsForObjects:[insertedObjects allObjects] error:&error];
         if (!success)
@@ -276,7 +275,7 @@ static id MagicalRecordUbiquitySetupNotificationObserver;
                                                                                             [[NSManagedObjectContext MR_defaultContext] MR_observeiCloudChangesInCoordinator:coordinator];
                                                                                         }];
     }
-    MRLogInfo(@"Set default context: %@", MagicalRecordDefaultContext);
+//    MRLogInfo(@"Set default context: %@", MagicalRecordDefaultContext);
 }
 
 + (void)MR_setRootSavingContext:(NSManagedObjectContext *)context
@@ -294,7 +293,7 @@ static id MagicalRecordUbiquitySetupNotificationObserver;
         [MagicalRecordRootSavingContext MR_setWorkingName:@"MagicalRecord Root Saving Context"];
     }];
 
-    MRLogInfo(@"Set root saving context: %@", MagicalRecordRootSavingContext);
+//    MRLogInfo(@"Set root saving context: %@", MagicalRecordRootSavingContext);
 }
 
 @end

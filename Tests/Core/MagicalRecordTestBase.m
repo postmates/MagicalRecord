@@ -4,7 +4,6 @@
 //
 
 #import "MagicalRecordTestBase.h"
-#import "MagicalRecordLogging.h"
 
 @implementation MagicalRecordTestBase
 

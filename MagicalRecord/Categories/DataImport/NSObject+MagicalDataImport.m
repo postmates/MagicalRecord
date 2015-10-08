@@ -11,7 +11,6 @@
 #import "NSEntityDescription+MagicalDataImport.h"
 #import "NSManagedObject+MagicalDataImport.h"
 #import "NSRelationshipDescription+MagicalDataImport.h"
-#import "MagicalRecordLogging.h"
 
 NSUInteger const kMagicalRecordImportMaximumAttributeFailoverDepth = 10;
 
@@ -50,7 +49,7 @@ NSUInteger const kMagicalRecordImportMaximumAttributeFailoverDepth = 10;
     NSEntityDescription *destinationEntity = [relationshipInfo destinationEntity];
     if (destinationEntity == nil) 
     {
-        MRLogError(@"Unable to find entity for type '%@'", [self valueForKey:kMagicalRecordImportRelationshipTypeKey]);
+//        MRLogError(@"Unable to find entity for type '%@'", [self valueForKey:kMagicalRecordImportRelationshipTypeKey]);
         return nil;
     }
     

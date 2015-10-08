@@ -9,7 +9,7 @@
 #import "NSPersistentStore+MagicalRecord.h"
 #import "NSManagedObjectModel+MagicalRecord.h"
 #import "MagicalRecord+ErrorHandling.h"
-#import "MagicalRecordLogging.h"
+#import "MagicalRecord+Options.h"
 
 
 static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
@@ -109,7 +109,7 @@ NSString * const kMagicalRecordPSCMismatchCouldNotRecreateStore = @"kMagicalReco
                 [[NSFileManager defaultManager] removeItemAtURL:shmSidecar error:nil];
                 [[NSFileManager defaultManager] removeItemAtURL:walSidecar error:nil];
                 
-                MRLogWarn(@"Removed incompatible model version: %@", [url lastPathComponent]);
+//                MRLogWarn(@"Removed incompatible model version: %@", [url lastPathComponent]);
                 if(deleteStoreError) {
                     [[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchCouldNotDeleteStore object:nil userInfo:@{@"Error":deleteStoreError}];
                 }
@@ -169,7 +169,7 @@ NSString * const kMagicalRecordPSCMismatchCouldNotRecreateStore = @"kMagicalReco
         }
         else
         {
-            MRLogWarn(@"iCloud is not enabled");
+//            MRLogWarn(@"iCloud is not enabled");
         }
 
 

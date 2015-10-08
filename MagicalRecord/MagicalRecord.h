@@ -16,7 +16,6 @@ FOUNDATION_EXPORT const unsigned char MagicalRecordVersionString[];
 
 #import <MagicalRecord/MagicalRecordXcode7CompatibilityMacros.h>
 #import <MagicalRecord/MagicalRecordInternal.h>
-#import <MagicalRecord/MagicalRecordLogging.h>
 
 #import <MagicalRecord/MagicalRecord+Actions.h>
 #import <MagicalRecord/MagicalRecord+ErrorHandling.h>

@@ -9,7 +9,6 @@
 #import "NSManagedObjectContext+MagicalSaves.h"
 #import "NSManagedObjectContext+MagicalRecord.h"
 #import "MagicalRecord+ErrorHandling.h"
-#import "MagicalRecordLogging.h"
 
 @implementation NSManagedObjectContext (MagicalSaves)
 
@@ -50,7 +49,7 @@
 
     if (!hasChanges)
     {
-        MRLogVerbose(@"NO CHANGES IN ** %@ ** CONTEXT - NOT SAVING", [self MR_workingName]);
+//        MRLogVerbose(@"NO CHANGES IN ** %@ ** CONTEXT - NOT SAVING", [self MR_workingName]);
 
         if (completion)
         {
@@ -70,9 +69,9 @@
                              (shouldSaveSynchronouslyExceptRoot && (self != [[self class] MR_rootSavingContext]));
 
     id saveBlock = ^{
-        MRLogInfo(@"→ Saving %@", [self MR_description]);
-        MRLogVerbose(@"→ Save Parents? %@", shouldSaveParentContexts ? @"YES" : @"NO");
-        MRLogVerbose(@"→ Save Synchronously? %@", saveSynchronously ? @"YES" : @"NO");
+//        MRLogInfo(@"→ Saving %@", [self MR_description]);
+//        MRLogVerbose(@"→ Save Parents? %@", shouldSaveParentContexts ? @"YES" : @"NO");
+//        MRLogVerbose(@"→ Save Synchronously? %@", saveSynchronously ? @"YES" : @"NO");
 
         BOOL saveResult = NO;
         NSError *error = nil;
@@ -83,7 +82,7 @@
         }
         @catch(NSException *exception)
         {
-            MRLogError(@"Unable to perform save: %@", (id)[exception userInfo] ?: (id)[exception reason]);
+//            MRLogError(@"Unable to perform save: %@", (id)[exception userInfo] ?: (id)[exception reason]);
         }
         @finally
         {
@@ -110,7 +109,7 @@
             {
                 if (saveResult)
                 {
-                    MRLogVerbose(@"→ Finished saving: %@", [self MR_description]);
+//                    MRLogVerbose(@"→ Finished saving: %@", [self MR_description]);
                 }
 
                 if (completion)

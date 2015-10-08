@@ -15,7 +15,6 @@
 #import "NSRelationshipDescription+MagicalDataImport.h"
 #import "NSString+MagicalDataImport.h"
 #import "MagicalImportFunctions.h"
-#import "MagicalRecordLogging.h"
 #import <objc/runtime.h>
 
 NSString * const kMagicalRecordImportCustomDateFormatKey            = @"dateFormat";
@@ -155,11 +154,11 @@ NSString * const kMagicalRecordImportAttributeUseDefaultValueWhenNotPresent = @"
     }
     @catch (NSException *exception)
     {
-        MRLogError(@"Adding object for relationship failed: %@\n", relationshipInfo);
-        MRLogError(@"relatedObject.entity %@", [relatedObject entity]);
-        MRLogError(@"relationshipInfo.destinationEntity %@", [relationshipInfo destinationEntity]);
-        MRLogError(@"Add Relationship Selector: %@", addRelatedObjectToSetMessage);   
-        MRLogError(@"perform selector error: %@", exception);
+//        MRLogError(@"Adding object for relationship failed: %@\n", relationshipInfo);
+//        MRLogError(@"relatedObject.entity %@", [relatedObject entity]);
+//        MRLogError(@"relationshipInfo.destinationEntity %@", [relationshipInfo destinationEntity]);
+//        MRLogError(@"Add Relationship Selector: %@", addRelatedObjectToSetMessage);   
+//        MRLogError(@"perform selector error: %@", exception);
     }
 }
 
@@ -182,11 +181,11 @@ NSString * const kMagicalRecordImportAttributeUseDefaultValueWhenNotPresent = @"
         }
         @catch (NSException *exception)
         {
-            MRLogWarn(@"Looking up a key for relationship failed while importing: %@\n", relationshipInfo);
-            MRLogWarn(@"lookupKey: %@", lookupKey);
-            MRLogWarn(@"relationshipInfo.destinationEntity %@", [relationshipInfo destinationEntity]);
-            MRLogWarn(@"relationshipData: %@", relationshipData);
-            MRLogWarn(@"Exception:\n%@: %@", [exception name], [exception reason]);
+//            MRLogWarn(@"Looking up a key for relationship failed while importing: %@\n", relationshipInfo);
+//            MRLogWarn(@"lookupKey: %@", lookupKey);
+//            MRLogWarn(@"relationshipInfo.destinationEntity %@", [relationshipInfo destinationEntity]);
+//            MRLogWarn(@"relationshipData: %@", relationshipData);
+//            MRLogWarn(@"Exception:\n%@: %@", [exception name], [exception reason]);
         }
         @finally
         {
